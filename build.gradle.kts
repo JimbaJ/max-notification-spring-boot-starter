@@ -30,6 +30,33 @@ tasks.test { useJUnitPlatform() }
 
 publishing {
     publications {
-        create<MavenPublication>("maven") { from(components["java"]) }
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            pom {
+                name = "MAX notification Spring Boot starter"
+                description = "Spring Boot starter for sending notifications to the MAX messenger: " +
+                        "one auto-configured client and max.notification.* settings."
+                url = "https://github.com/JimbaJ/max-notification-spring-boot-starter"
+                licenses {
+                    license {
+                        name = "Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                        distribution = "repo"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "JimbaJ"
+                        name = "Sergey Dorogov"
+                        url = "https://github.com/JimbaJ"
+                    }
+                }
+                scm {
+                    connection = "scm:git:https://github.com/JimbaJ/max-notification-spring-boot-starter.git"
+                    developerConnection = "scm:git:ssh://git@github.com/JimbaJ/max-notification-spring-boot-starter.git"
+                    url = "https://github.com/JimbaJ/max-notification-spring-boot-starter"
+                }
+            }
+        }
     }
 }
