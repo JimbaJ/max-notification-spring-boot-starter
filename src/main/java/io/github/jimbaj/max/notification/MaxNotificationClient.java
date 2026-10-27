@@ -1,4 +1,4 @@
-package io.github.jimbaj.max;
+package io.github.jimbaj.max.notification;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;

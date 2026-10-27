@@ -1,4 +1,4 @@
-package io.github.jimbaj.max;
+package io.github.jimbaj.max.notification;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.AutoConfigurations;

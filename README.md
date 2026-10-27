@@ -28,11 +28,17 @@ Java 21, Spring Boot 3.4.x (сборка тянет платформу `spring-b
 
     ./gradlew publishToMavenLocal
 
-    dependencies {
-        implementation("com.github.jimbaj:max-notification-spring-boot-starter:0.1.0")
+    repositories {
+        mavenLocal()          // после настоящей публикации эта строка заменится на jitpack
     }
 
-После тега `v0.1.0` координаты те же, репозиторий — `https://jitpack.io`.
+    dependencies {
+        implementation("com.github.JimbaJ:max-notification-spring-boot-starter:0.1.0")
+    }
+
+После тега `v0.1.0` координаты те же, а вместо `mavenLocal()` в репозитории добавляется
+`maven { url = uri("https://jitpack.io") }`. Регистр в `com.github.JimbaJ` обязателен: JitPack
+различает варианты написания логина, GitHub — нет.
 
 ## Настройки
 

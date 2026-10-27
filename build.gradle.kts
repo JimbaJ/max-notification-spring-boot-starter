@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.jimbaj"
+group = "com.github.JimbaJ"
 version = "0.1.0"
 
 java {
