@@ -24,6 +24,9 @@ dependencies {
     testImplementation("org.springframework:spring-webmvc")
     testImplementation("jakarta.servlet:jakarta.servlet-api")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    compileOnly("com.fasterxml.jackson.core:jackson-annotations")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind")
+    compileOnly("org.slf4j:slf4j-api")
 }
 
 tasks.test { useJUnitPlatform() }
