@@ -1,8 +1,8 @@
 package io.github.jimbaj.max.notification;
 
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -16,7 +16,7 @@ import java.time.Duration;
 
 @AutoConfiguration
 @EnableConfigurationProperties(MaxNotificationProperties.class)
-@ConditionalOnProperty(prefix = "max.notification", name = "token")
+@ConditionalOnExpression("'${max.notification.token:}'.trim().length() > 0")
 public class MaxNotificationAutoConfiguration {
 
     @Bean
@@ -54,6 +54,7 @@ public class MaxNotificationAutoConfiguration {
 
     @Bean
     @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+
     public MaxWebhookController maxWebhookController(MaxUpdateHandler handler) {
         return new MaxWebhookController(handler);
     }
